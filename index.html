@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+  </head>
+
+  <body>
+    <p id="showResult"></p>
+    
+    <script>
+        function checkString (myStr){
+          var i = 0, j = 1, myStr1 = '';
+          
+          while (i <= myStr.length - 1)
+          {
+            
+            if (myStr.charAt(i) != myStr.charAt(i+1)){
+              
+              myStr1 += myStr.charAt(i);
+              myStr1 += j;
+              j = 1;
+             
+            } else if (myStr.charAt(i) == myStr.charAt(i+1)){
+               j++;
+            }
+            
+            i++;
+          }
+          myStr1 += myStr.charAt(i); //last character at the string
+          
+          return myStr1;
+        }
+        
+        document.getElementById("showResult").innerHTML = checkString ('aaabbccddeeefrrrtt');
+    </script>
+  </body>
+
+</html>
