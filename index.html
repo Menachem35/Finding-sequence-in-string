@@ -7,30 +7,31 @@
   </head>
 
   <body>
-    <p id="showResult"></p>
+    <p id="showResult"></p> <!-- Diaplay the result -->
     
     <script>
+        // the function checkString gets string as a parameter
         function checkString (myStr){
-          var i = 0, j = 1, myStr1 = '';
+          var i = 0, j = 1, myStr1 = ''; //Initialize variables. We'll build the new string - the result with myStr1 
           
-          while (i <= myStr.length - 1)
+          while (i <= myStr.length - 1) // loop to run on the string
           {
             
-            if (myStr.charAt(i) != myStr.charAt(i+1)){
+            if (myStr.charAt(i) != myStr.charAt(i+1)){ // if the next character different from the current, it's an end of sequence
               
-              myStr1 += myStr.charAt(i);
-              myStr1 += j;
-              j = 1;
+              myStr1 += myStr.charAt(i); // add the current character to the new string
+              myStr1 += j; // add the number of time this character appear in a sequence 
+              j = 1; // Initialize again the helper variable
              
-            } else if (myStr.charAt(i) == myStr.charAt(i+1)){
-               j++;
+            } else if (myStr.charAt(i) == myStr.charAt(i+1)){ //if the current character equal to the next, then we have a sequence
+               j++; // count how many characters in the sequence
             }
             
             i++;
           }
           myStr1 += myStr.charAt(i); //last character at the string
           
-          return myStr1;
+          return myStr1; // return the new string
         }
         
         document.getElementById("showResult").innerHTML = checkString ('aaabbccddeeefrrrtt');
